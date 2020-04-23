@@ -1,4 +1,19 @@
-# source
+
+
+## calculator idea
+
+$addition = new Addition;
+$addition->setOperands([5, 10]); // 15
+
+$division = new Division;
+$division->setOperands([100, 2]); // 50
+
+$calculator = new Calculator;
+$calculator->setOperations([$addition, $division]); // [15, 50]
+
+$addition->setOperands([15, 50]);
+
+## source
 
 YouTube: Unit testing with PHPUnit
 
