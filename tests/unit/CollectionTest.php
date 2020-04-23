@@ -114,4 +114,37 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(3, $collection->count());
         $this->assertCount(3, $collection->get());
     }
+
+    /**
+     * @test
+     */
+    public function returns_json_encoded_items(): void
+    {
+        $collection = new \App\Support\Collection(
+            [
+                ['username' => 'alex'],
+                ['username' => 'billy']
+            ]
+        );
+
+        $this->assertEquals('[{"username":"alex"},{"username":"billy"}]', $collection->toJson());
+    }
+
+    /**
+     * @test
+     */
+    public function json_encoding_a_collection_object_returns_json(): void
+    {
+        $collection = new \App\Support\Collection(
+            [
+                ['username' => 'alex'],
+                ['username' => 'billy']
+            ]
+        );
+
+        $encoded = json_encode($collection);
+
+        $this->assertEquals('[{"username":"alex"},{"username":"billy"}]', $encoded);
+
+    }
 }
